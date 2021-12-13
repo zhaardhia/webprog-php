@@ -28,3 +28,7 @@ Route::get('/admin-city', function () {
 Route::get('/admin-transaction', function () {
     return view('admin-transaction');
 });
+
+Route::get('/relogreat', function () {
+    return view('relogreat');
+});
