@@ -1,9 +1,9 @@
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
+<footer class="text-center text-lg-start bg-light text-muted">
 
     <!-- Section: Links  -->
     <section class="">
-        <div class="container text-center text-md-start mt-5">
+        <div class="container text-center text-md-start mt-5 pt-3">
             <!-- Grid row -->
             <div class="row mt-3">
                 <!-- Grid column -->
