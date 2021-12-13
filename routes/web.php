@@ -32,3 +32,7 @@ Route::get('/admin-transaction', function () {
 Route::get('/relogreat', function () {
     return view('relogreat');
 });
+
+Route::get('/checkout', function () {
+    return view('checkout');
+});
