@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
 Route::get('/details', function () {
     return view('detail');
+});
+
+Route::get('/admin-city', function () {
+    return view('admin-city');
+});
+
+Route::get('/admin-transaction', function () {
+    return view('admin-transaction');
 });
