@@ -12,6 +12,14 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = "users";
+    protected $guarded = [];
+
+    public function city()
+    {
+        return $this->hasOne(City::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
