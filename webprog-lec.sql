@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 10:57 AM
+-- Generation Time: Dec 14, 2021 at 08:28 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -33,6 +33,16 @@ CREATE TABLE `city` (
   `country` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`id`, `name`, `country`) VALUES
+(1, 'Brennahaven', 'Isle of Man'),
+(2, 'Port Raphaellebury', 'Slovenia'),
+(3, 'Jacobsonfurt', 'Kyrgyz Republic'),
+(4, 'North Eli', 'Somalia');
+
 -- --------------------------------------------------------
 
 --
@@ -40,7 +50,7 @@ CREATE TABLE `city` (
 --
 
 CREATE TABLE `citydetail` (
-  `cityid` int(20) NOT NULL,
+  `city_id` int(20) NOT NULL,
   `costofliving` float NOT NULL,
   `salary` float NOT NULL,
   `tax` float NOT NULL,
@@ -56,6 +66,16 @@ CREATE TABLE `citydetail` (
   `internet` float NOT NULL,
   `recreational` enum('notmuch','several','many') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `citydetail`
+--
+
+INSERT INTO `citydetail` (`city_id`, `costofliving`, `salary`, `tax`, `seasons`, `temperature`, `humidity`, `aqi`, `crimerate`, `racism`, `traffic`, `hospital`, `education`, `internet`, `recreational`) VALUES
+(1, 20678, 24410, 49, 'Summer', 22, 4, 2, 51, 'verylow', 'verylow', 'verybad', 'verybad', 90, 'notmuch'),
+(2, 14949, 16743, 96, 'Summer', 30, 15, 4, 78, 'verylow', 'verylow', 'verybad', 'verybad', 43, 'notmuch'),
+(3, 27148, 21934, 43, 'Summer', 27, 9, 3, 39, 'verylow', 'verylow', 'verybad', 'verybad', 83, 'notmuch'),
+(4, 24265, 25917, 80, 'Summer', 30, 19, 1, 97, 'verylow', 'verylow', 'verybad', 'verybad', 87, 'notmuch');
 
 -- --------------------------------------------------------
 
@@ -136,6 +156,15 @@ CREATE TABLE `paymentmethod` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `paymentmethod`
+--
+
+INSERT INTO `paymentmethod` (`id`, `name`) VALUES
+(1, 'Debit'),
+(2, 'Credit Card'),
+(3, 'GoPay');
+
 -- --------------------------------------------------------
 
 --
@@ -162,8 +191,8 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `transaction` (
   `id` int(20) NOT NULL,
-  `userid` bigint(20) UNSIGNED NOT NULL,
-  `paymentmethodid` int(20) NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `paymentmethod_id` int(20) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -175,6 +204,7 @@ CREATE TABLE `transaction` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `city_id` int(20) DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -189,8 +219,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `ispremium`) VALUES
-(1, 'daffa', 'daffamadeo@gmail.com', NULL, '$2y$10$MQ8ydodm4BPshrn.M1gcXOq6E1pLLgNMHZ9XCg7VmhIQaTEBloP6S', NULL, '2021-12-14 01:09:30', '2021-12-14 01:09:30', 0);
+INSERT INTO `users` (`id`, `city_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `ispremium`) VALUES
+(1, NULL, 'daffa', 'daffamadeo@gmail.com', NULL, '$2y$10$MQ8ydodm4BPshrn.M1gcXOq6E1pLLgNMHZ9XCg7VmhIQaTEBloP6S', NULL, '2021-12-14 01:09:30', '2021-12-14 01:09:30', 0);
 
 --
 -- Indexes for dumped tables
@@ -206,7 +236,7 @@ ALTER TABLE `city`
 -- Indexes for table `citydetail`
 --
 ALTER TABLE `citydetail`
-  ADD KEY `cityid` (`cityid`);
+  ADD KEY `cityid` (`city_id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -246,15 +276,16 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `userid` (`userid`),
-  ADD KEY `paymentmethodid` (`paymentmethodid`);
+  ADD KEY `userid` (`user_id`),
+  ADD KEY `paymentmethodid` (`paymentmethod_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `cityid` (`city_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -264,7 +295,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -282,7 +313,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `paymentmethod`
 --
 ALTER TABLE `paymentmethod`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -310,14 +341,20 @@ ALTER TABLE `users`
 -- Constraints for table `citydetail`
 --
 ALTER TABLE `citydetail`
-  ADD CONSTRAINT `fk_city` FOREIGN KEY (`cityid`) REFERENCES `city` (`id`);
+  ADD CONSTRAINT `fk_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
 
 --
 -- Constraints for table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `fk_paymentmethod` FOREIGN KEY (`paymentmethodid`) REFERENCES `transaction` (`id`),
-  ADD CONSTRAINT `fk_user` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `fk_paymentmethod` FOREIGN KEY (`paymentmethod_id`) REFERENCES `transaction` (`id`),
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `fk_status_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

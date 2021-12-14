@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City as CityModel;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
@@ -11,9 +12,10 @@ class DetailController extends Controller
         $this->middleware('auth');
     }
 
-    public function goToDetail()
+    public function goToDetail($cityname)
     {
-        return view('detail');
+        $city = CityModel::where('name', '=', $cityname)->get();
+        return view('detail', ['city' => $city[0]]);
     }
 
     //blm kelar

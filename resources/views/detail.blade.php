@@ -38,102 +38,75 @@
         </div>
     </div>
     <div class="container mt-5">
-        <h1>Heading 1</h1>
+        <h1>{{ $city->name }}, {{ $city->country }}</h1>
         <hr>
         <div class="row">
             <div class="col-md-6 col-lg-3 mt-4">
-                <h3>Heading 3</h3>
+                <h3>Finance</h3>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Cost of Living</h2>
+                    <p>{{ $city->detail->costofliving }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Average Salary</h2>
+                    <p>{{ $city->detail->salary }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
-                </div>
-                <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Tax and Customs</h2>
+                    <p>{{ $city->detail->tax }}</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 mt-4">
-                <h3>Heading 3</h3>
+                <h3>Weather</h3>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Seasons</h2>
+                    <p>{{ $city->detail->seasons }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Temperature</h2>
+                    <p>{{ $city->detail->temperature }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Humidity</h2>
+                    <p>{{ $city->detail->humidity }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mt-4">
-                <h3>Heading 3</h3>
-                <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
-                </div>
-                <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
-                </div>
-                <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
-                </div>
-                <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>AQI</h2>
+                    <p>{{ $city->detail->aqi }}</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 mt-4">
-                <h3>Heading 3</h3>
+                <h3>Safety</h3>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Crime Rate</h2>
+                    <p>{{ $city->detail->crimerate }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Lack of Racism</h2>
+                    <p>{{ $city->detail->racism }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
-                </div>
-                <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Traffic Safety</h2>
+                    <p>{{ $city->detail->traffic }}</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 mt-4">
-                <h3>Heading 3</h3>
+                <h3>Infrastructure</h3>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Hospital Availability</h2>
+                    <p>{{ $city->detail->hospital }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Quality of Education</h2>
+                    <p>{{ $city->detail->education }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Internet Speed</h2>
+                    <p>{{ $city->detail->internet }}</p>
                 </div>
                 <div>
-                    <h2>Heading 2</h2>
-                    <p>Paragraph Text</p>
+                    <h2>Recreational Facilites</h2>
+                    <p>{{ $city->detail->recreational }}</p>
                 </div>
             </div>
         </div>
