@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 09:25 AM
+-- Generation Time: Dec 14, 2021 at 10:50 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -57,7 +57,25 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2021_12_14_092110_create_city_table', 0),
+(6, '2021_12_14_092110_create_failed_jobs_table', 0),
+(7, '2021_12_14_092110_create_password_resets_table', 0),
+(8, '2021_12_14_092110_create_paymentmethod_table', 0),
+(9, '2021_12_14_092110_create_personal_access_tokens_table', 0),
+(10, '2021_12_14_092110_create_transaction_table', 0),
+(11, '2021_12_14_092110_create_users_table', 0),
+(12, '2021_12_14_092111_add_foreign_keys_to_transaction_table', 0),
+(13, '2021_12_14_094924_create_city_table', 0),
+(14, '2021_12_14_094924_create_citydetail_table', 0),
+(15, '2021_12_14_094924_create_failed_jobs_table', 0),
+(16, '2021_12_14_094924_create_password_resets_table', 0),
+(17, '2021_12_14_094924_create_paymentmethod_table', 0),
+(18, '2021_12_14_094924_create_personal_access_tokens_table', 0),
+(19, '2021_12_14_094924_create_transaction_table', 0),
+(20, '2021_12_14_094924_create_users_table', 0),
+(21, '2021_12_14_094927_add_foreign_keys_to_citydetail_table', 0),
+(22, '2021_12_14_094927_add_foreign_keys_to_transaction_table', 0);
 
 -- --------------------------------------------------------
 
@@ -103,15 +121,16 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `ispremium` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'daffa', 'daffamadeo@gmail.com', NULL, '$2y$10$MQ8ydodm4BPshrn.M1gcXOq6E1pLLgNMHZ9XCg7VmhIQaTEBloP6S', NULL, '2021-12-14 01:09:30', '2021-12-14 01:09:30');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `ispremium`) VALUES
+(1, 'daffa', 'daffamadeo@gmail.com', NULL, '$2y$10$MQ8ydodm4BPshrn.M1gcXOq6E1pLLgNMHZ9XCg7VmhIQaTEBloP6S', NULL, '2021-12-14 01:09:30', '2021-12-14 01:09:30', 0);
 
 --
 -- Indexes for dumped tables
@@ -165,7 +184,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
