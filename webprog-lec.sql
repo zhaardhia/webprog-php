@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 10:50 AM
+-- Generation Time: Dec 14, 2021 at 10:57 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -20,6 +20,42 @@ SET time_zone = "+00:00";
 --
 -- Database: `webprog-lec`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city`
+--
+
+CREATE TABLE `city` (
+  `id` int(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `citydetail`
+--
+
+CREATE TABLE `citydetail` (
+  `cityid` int(20) NOT NULL,
+  `costofliving` float NOT NULL,
+  `salary` float NOT NULL,
+  `tax` float NOT NULL,
+  `seasons` varchar(255) NOT NULL,
+  `temperature` float NOT NULL,
+  `humidity` float NOT NULL,
+  `aqi` float NOT NULL,
+  `crimerate` float NOT NULL,
+  `racism` enum('verylow','low','medium','high','veryhigh') NOT NULL,
+  `traffic` enum('verylow','low','medium','high','veryhigh') NOT NULL,
+  `hospital` enum('verybad','bad','okay','good','verygood') NOT NULL,
+  `education` enum('verybad','bad','okay','good','verygood') NOT NULL,
+  `internet` float NOT NULL,
+  `recreational` enum('notmuch','several','many') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -92,6 +128,17 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `paymentmethod`
+--
+
+CREATE TABLE `paymentmethod` (
+  `id` int(20) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `personal_access_tokens`
 --
 
@@ -106,6 +153,19 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaction`
+--
+
+CREATE TABLE `transaction` (
+  `id` int(20) NOT NULL,
+  `userid` bigint(20) UNSIGNED NOT NULL,
+  `paymentmethodid` int(20) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -137,6 +197,18 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 
 --
+-- Indexes for table `city`
+--
+ALTER TABLE `city`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `citydetail`
+--
+ALTER TABLE `citydetail`
+  ADD KEY `cityid` (`cityid`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -156,12 +228,26 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `paymentmethod`
+--
+ALTER TABLE `paymentmethod`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userid` (`userid`),
+  ADD KEY `paymentmethodid` (`paymentmethodid`);
 
 --
 -- Indexes for table `users`
@@ -173,6 +259,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `city`
+--
+ALTER TABLE `city`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -187,16 +279,45 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT for table `paymentmethod`
+--
+ALTER TABLE `paymentmethod`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `citydetail`
+--
+ALTER TABLE `citydetail`
+  ADD CONSTRAINT `fk_city` FOREIGN KEY (`cityid`) REFERENCES `city` (`id`);
+
+--
+-- Constraints for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `fk_paymentmethod` FOREIGN KEY (`paymentmethodid`) REFERENCES `transaction` (`id`),
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
