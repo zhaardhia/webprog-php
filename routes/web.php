@@ -36,3 +36,8 @@ Route::get('/relogreat', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/detail', [App\Http\Controllers\DetailController::class, 'goToDetail']);

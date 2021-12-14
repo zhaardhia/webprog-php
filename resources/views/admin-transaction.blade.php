@@ -1,3 +1,4 @@
+@section('pageTitle', 'Transaction List')
 @extends('layouts.master')
 @section('content')
 

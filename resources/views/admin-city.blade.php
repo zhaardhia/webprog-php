@@ -1,3 +1,4 @@
+@section('pageTitle', 'City List')
 @extends('layouts.master')
 @section('content')
 
