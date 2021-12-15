@@ -11,6 +11,11 @@ class Images extends Model
 
     protected $table = "images";
     protected $guarded = [];
+    protected $fillable = [
+        'img1',
+        'img2',
+        'img3',
+    ];
 
     public function city()
     {

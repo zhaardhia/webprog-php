@@ -15,13 +15,20 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 4; $i++) {
-            DB::table('images')->insert([
-                'city_id' => $i,
-                'img1' => "https://picsum.photos/1000",
-                'img2' => "https://picsum.photos/1000",
-                'img3' => "https://picsum.photos/1000",
-            ]);
-        }
+        // for ($i = 1; $i <= 4; $i++) {
+        //     DB::table('images')->insert([
+        //         'city_id' => $i,
+        //         'img1' => "https://picsum.photos/1000",
+        //         'img2' => "https://picsum.photos/1000",
+        //         'img3' => "https://picsum.photos/1000",
+        //     ]);
+        // }
+
+        DB::table('images')->insert([
+            'city_id' => 13,
+            'img1' => "https://picsum.photos/1000",
+            'img2' => "https://picsum.photos/1000",
+            'img3' => "https://picsum.photos/1000",
+        ]);
     }
 }

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\City as CityModel;
+use App\Models\CityDetail as CDModel;
+use App\Models\Images as ImageModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CityController extends Controller
 {
@@ -19,21 +22,39 @@ class CityController extends Controller
             return redirect('/');
     }
 
-    public function index()
+    public function create_city_view()
     {
         $cities = CityModel::all();
-        return view('index', ['cities' => $cities]);
+        $result = Str::endsWith(Auth::user()->email, '@relocate.com');
+        if ($result) {
+            return view('admin.create-city', ['cities' => $cities]);
+        } else
+            return redirect('/');
     }
 
-    public function relogreat()
+    public function store(Request $request)
     {
-        $cities = CityModel::all();
-        return view('relogreat', ['cities' => $cities]);
-    }
 
-    public function checkout()
-    {
-        $cities = CityModel::all();
-        return view('checkout', ['cities' => $cities]);
+        //split request
+        $city = new CityModel;
+        $city->name = $request->name;
+        $city->country = $request->country;
+        $city->save();
+
+        //add city_id to current request
+        $city_id = CityModel::latest('id')->first()->id;
+        $request->request->add(['city_id' => $city_id]);
+
+        //remove attributes accordingly
+        $detail_data = $request->except('_token', 'name', 'country', 'img1', 'img2', 'img3');
+        $image_data = $request->except('_token', 'name', 'country', 'costofliving', 'salary', 'tax', 'seasons', 'temperature', 'humidity', 'aqi', 'crimerate', 'racism', 'traffic', 'hospital', 'education', 'internet', 'recreational');
+
+        //create new detail
+        CDModel::insert($detail_data);
+
+        //create new image
+        ImageModel::insert($image_data);
+
+        return redirect('/');
     }
 }

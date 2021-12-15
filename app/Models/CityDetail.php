@@ -8,9 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class CityDetail extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $table = "citydetail";
     protected $guarded = [];
+    protected $fillable = [
+        'costofliving',
+        'salary',
+        'tax',
+        'season',
+        'temperature',
+        'humidity',
+        'aqi',
+        'crimerate',
+        'racism',
+        'traffic',
+        'hospital',
+        'education',
+        'internet',
+        'recreational',
+    ];
 
     public function city()
     {

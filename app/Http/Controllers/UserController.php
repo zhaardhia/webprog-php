@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    //
     public function updateStatus(Request $request)
     {
         $userid = Auth::user()->id;

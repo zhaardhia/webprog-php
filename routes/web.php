@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\DetailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,17 +17,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('users/{id}', function ($id) {
 });
 
-Route::post('/change-status', [App\Http\Controllers\UserController::class, 'updateStatus']);
-Route::get('/relogreat', [App\Http\Controllers\CityController::class, 'relogreat']);
-Route::get('/checkout', [App\Http\Controllers\CityController::class, 'checkout']);
-Route::get('/', [App\Http\Controllers\CityController::class, 'index']);
-Route::get('/admin-transaction/{transaction_id}', [App\Http\Controllers\TransactionController::class, 'transaction_detail']);
-Route::get('/admin-transaction', [App\Http\Controllers\TransactionController::class, 'admin_transaction']);
-Route::get('/admin-city', [App\Http\Controllers\CityController::class, 'admin_city']);
-Route::get('/details/{cityname}', [App\Http\Controllers\DetailController::class, 'goToDetail']);
+Route::post('/change-status', [UserController::class, 'updateStatus']);
+
+Route::get('/relogreat', [PagesController::class, 'relogreat']);
+Route::get('/checkout', [PagesController::class, 'checkout']);
+Route::get('/', [PagesController::class, 'index']);
+
+Route::get('/admin-transaction/{transaction_id}', [TransactionController::class, 'transaction_detail']);
+Route::get('/admin-transaction', [TransactionController::class, 'admin_transaction']);
+
+Route::get('/admin-city', [CityController::class, 'admin_city']);
+Route::get('/details/{cityname}', [DetailController::class, 'goToDetail']);
+
+//CRUD ADMIN
+Route::get('/create-city', [CityController::class, 'create_city_view']);
+Route::post('/store', [CityController::class, 'store']);
 
 Auth::routes();

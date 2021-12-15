@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="input-group mt-3">
-        <button type="button" class="btn btn-outline-success w-100">Add new city</button>
+        <a href="/create-city" class="btn btn-outline-success w-100">Add new city</a>
     </div>
     <div class="input-group">
         <input type="search" class="form-control rounded" placeholder="Search city name" aria-label="Search"
@@ -25,8 +25,8 @@
                 <td>{{$city->id}}</td>
                 <td>{{$city->name}}</td>
                 <td>{{$city->country}}</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <td><a class="btn btn-primary">Edit</a></td>
+                <td><a class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach
         </tbody>
