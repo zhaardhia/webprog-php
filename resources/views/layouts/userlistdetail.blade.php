@@ -22,7 +22,7 @@
                     <div class="d-flex align-items-center" style="gap: 1.5rem">
                         <img src="{{ URL::asset('Detail/IMG_5876.jpg') }}" class="rounded mw-100"
                             style="height: 4rem; width: 4rem;" alt="">
-                        <p class="mb-0" style="font-size: 1.5rem">$user->name</p>
+                        <p class="mb-0" style="font-size: 1.5rem">{{$user->name}}</p>
                     </div>
                     @if ($loop->index == 4)
                         @break
