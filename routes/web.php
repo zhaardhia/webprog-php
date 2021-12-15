@@ -22,6 +22,11 @@ Route::get('/admin-transaction', function () {
 });
 
 
+Route::get('users/{id}', function ($id) {
+});
+
+Route::post('/change-status', [App\Http\Controllers\UserController::class, 'updateStatus']);
+
 Route::get('/relogreat', [App\Http\Controllers\PagesController::class, 'relogreat']);
 Route::get('/checkout', [App\Http\Controllers\PagesController::class, 'checkout']);
 Route::get('/', [App\Http\Controllers\PagesController::class, 'index']);

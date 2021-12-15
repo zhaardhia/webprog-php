@@ -15,7 +15,8 @@ class DetailController extends Controller
     public function goToDetail($cityname)
     {
         $city = CityModel::where('name', '=', $cityname)->get();
-        return view('detail', ['city' => $city[0]]);
+        $cities = CityModel::all();
+        return view('detail', ['city' => $city[0]])->with('cities', $cities);
     }
 
     //blm kelar
