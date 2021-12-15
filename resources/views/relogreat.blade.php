@@ -6,14 +6,13 @@
     {{-- Dark Mode Hero --}}
     <div class="bg-dark text-secondary px-4 py-5 text-center">
         <div class="py-5">
-            <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
+            <h1 class="display-5 fw-bold text-white">Relogreat+</h1>
             <div class="col-lg-6 mx-auto">
-                <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the
-                    world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid
-                    system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                <p class="fs-5 mb-4">Get an enhanced Relocate experience for only less than $2 a month. It keeps the server alive
+                    and it will help us a lot. 25% of the earnings will go to the "<a href="https://covid19responsefund.org/en/">Covid-19 Response Fund</a>".</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
-                    <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button>
+                    <a href="#bottom" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" role="button" aria-pressed="true">Start now</a>
+
                 </div>
             </div>
         </div>
@@ -22,32 +21,16 @@
     {{-- Features (cards) --}}
 
     <div class="container px-4 py-5" id="custom-cards">
-        <h2 class="pb-2 border-bottom">Custom cards</h2>
+        <h2 class="pb-2 border-bottom text-center">what will you get from Relogreat+?</h2>
 
         <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
             <div class="col">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     style="background-image: url('unsplash-photo-1.jpg');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
-                        <ul class="d-flex list-unstyled mt-auto">
-                            <li class="me-auto">
-                                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32"
-                                    class="rounded-circle border border-white">
-                            </li>
-                            <li class="d-flex align-items-center me-3">
-                                <svg class="bi me-2" width="1em" height="1em">
-                                    <use xlink:href="#geo-fill"></use>
-                                </svg>
-                                <small>Earth</small>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <svg class="bi me-2" width="1em" height="1em">
-                                    <use xlink:href="#calendar3"></use>
-                                </svg>
-                                <small>3d</small>
-                            </li>
-                        </ul>
+                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-top">Granted access to our community</h2>
+                        <p>Join our discord and Slack server</p>
+
                     </div>
                 </div>
             </div>
@@ -56,26 +39,10 @@
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     style="background-image: url('unsplash-photo-2.jpg');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines
+                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> Deeper research and analysis
                         </h2>
-                        <ul class="d-flex list-unstyled mt-auto">
-                            <li class="me-auto">
-                                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32"
-                                    class="rounded-circle border border-white">
-                            </li>
-                            <li class="d-flex align-items-center me-3">
-                                <svg class="bi me-2" width="1em" height="1em">
-                                    <use xlink:href="#geo-fill"></use>
-                                </svg>
-                                <small>Pakistan</small>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <svg class="bi me-2" width="1em" height="1em">
-                                    <use xlink:href="#calendar3"></use>
-                                </svg>
-                                <small>4d</small>
-                            </li>
-                        </ul>
+                        <p>More detailed information and wider range of data on the city</p>
+
                     </div>
                 </div>
             </div>
@@ -111,15 +78,12 @@
 
     {{-- Call to action --}}
 
-    <div class="px-4 py-5 my-5 text-center">
-        <img class="d-block mx-auto mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-        <h1 class="display-5 fw-bold">Centered hero</h1>
+    <div id="bottom" class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">So what are you waiting for?</h1>
         <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s
-                most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
-                extensive prebuilt components, and powerful JavaScript plugins.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Rp. 20,000.00 / Month</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Rp. 180,000.00 / Year</button>
             </div>
         </div>
     </div>
