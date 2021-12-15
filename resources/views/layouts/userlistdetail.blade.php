@@ -1,8 +1,7 @@
 <div data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer">
     @forelse ($city->users as $user)
-        {{-- <img src="{{ URL::$user->image }}" class="rounded-circle mw-100" style="height: 2rem; width: 2rem;"
-        alt=""> --}}
-        <p>yo</p>
+        <img src="{{ $user->picture }}" class="rounded-circle mw-100" style="height: 2rem; width: 2rem;"
+        alt="">
     @empty
         <small>No users here currently...<br/></small>
     @endforelse
@@ -20,7 +19,7 @@
             <div class="modal-body d-flex flex-column" style="gap: 1rem">
                 @forelse ($city->users as $user)
                     <div class="d-flex align-items-center" style="gap: 1.5rem">
-                        <img src="{{ URL::asset('Detail/IMG_5876.jpg') }}" class="rounded mw-100"
+                        <img src="{{ $user->picture }}" class="rounded mw-100"
                             style="height: 4rem; width: 4rem;" alt="">
                         <p class="mb-0" style="font-size: 1.5rem">{{$user->name}}</p>
                     </div>

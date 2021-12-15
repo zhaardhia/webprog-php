@@ -43,15 +43,15 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ URL::asset('Detail/IMG_4884.jpg') }}" class="d-block w-100" alt="..."
+                    <img src="{{ $city->images->img1 }}" class="d-block w-100" alt="..."
                         style="object-fit: cover; height: 30rem;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ URL::asset('Detail/IMG_5864.jpg') }}" class="d-block w-100" alt="..."
+                    <img src="{{ $city->images->img2 }}" class="d-block w-100" alt="..."
                         style="object-fit: cover; height: 30rem;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ URL::asset('Detail/IMG_5876.jpg') }}" class="d-block w-100" alt="..."
+                    <img src="{{ $city->images->img3 }}" class="d-block w-100" alt="..."
                         style="object-fit: cover; height: 30rem;">
                 </div>
             </div>

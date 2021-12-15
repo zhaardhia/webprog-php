@@ -21,4 +21,9 @@ class City extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function images()
+    {
+        return $this->hasOne(Images::class);
+    }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 08:28 PM
+-- Generation Time: Dec 15, 2021 at 04:26 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -92,6 +92,29 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `city_id` int(20) NOT NULL,
+  `img1` varchar(255) NOT NULL,
+  `img2` varchar(255) NOT NULL,
+  `img3` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`city_id`, `img1`, `img2`, `img3`) VALUES
+(1, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(2, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(3, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(4, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000');
 
 -- --------------------------------------------------------
 
@@ -212,15 +235,17 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `ispremium` tinyint(1) NOT NULL DEFAULT 0
+  `ispremium` tinyint(1) NOT NULL DEFAULT 0,
+  `picture` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `city_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `ispremium`) VALUES
-(1, NULL, 'daffa', 'daffamadeo@gmail.com', NULL, '$2y$10$MQ8ydodm4BPshrn.M1gcXOq6E1pLLgNMHZ9XCg7VmhIQaTEBloP6S', NULL, '2021-12-14 01:09:30', '2021-12-14 01:09:30', 0);
+INSERT INTO `users` (`id`, `city_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `ispremium`, `picture`) VALUES
+(1, 4, 'daffa', 'daffamadeo@gmail.com', NULL, '$2y$10$MQ8ydodm4BPshrn.M1gcXOq6E1pLLgNMHZ9XCg7VmhIQaTEBloP6S', NULL, '2021-12-14 01:09:30', '2021-12-15 08:26:05', 0, 'https://picsum.photos/1000'),
+(2, NULL, 'john', 'aaa@relocate.com', NULL, '$2y$10$MzjcqNS6n1A.2Pzb8mmH.eZFPyxU.z6yYYUwtz1ZMzjIJsmx0YNYG', NULL, '2021-12-15 07:57:11', '2021-12-15 07:57:11', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -244,6 +269,12 @@ ALTER TABLE `citydetail`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD KEY `city_id` (`city_id`);
 
 --
 -- Indexes for table `migrations`
@@ -331,7 +362,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -342,6 +373,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `citydetail`
   ADD CONSTRAINT `fk_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
+
+--
+-- Constraints for table `images`
+--
+ALTER TABLE `images`
+  ADD CONSTRAINT `fk_img_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
 
 --
 -- Constraints for table `transaction`

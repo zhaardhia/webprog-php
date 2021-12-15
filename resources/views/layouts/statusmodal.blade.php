@@ -9,7 +9,7 @@
                 @csrf
                 <select id="status-dropdown" class="form-select" aria-label="Default select example">
                     <option selected>
-                        @if ('{{ Auth::user()->city_id->isEmpty() }}' )
+                        @if (Auth::user()->city_id < 1)
                             Choose a city
                         @else
                             {{ Auth::user()->city->name . ", ". Auth::user()->city->country }}
