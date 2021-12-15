@@ -29,7 +29,8 @@ Route::post('/change-status', [App\Http\Controllers\UserController::class, 'upda
 
 Route::get('/relogreat', [App\Http\Controllers\PagesController::class, 'relogreat']);
 Route::get('/checkout', [App\Http\Controllers\PagesController::class, 'checkout']);
-Route::get('/', [App\Http\Controllers\PagesController::class, 'index']);
+Route::get('/', [App\Http\Controllers\CityController::class, 'index']);
+Route::get('/admin-city', [App\Http\Controllers\CityController::class, 'admin_city']);
 Route::get('/details/{cityname}', [App\Http\Controllers\DetailController::class, 'goToDetail']);
 
 Auth::routes();

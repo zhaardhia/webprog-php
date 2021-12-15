@@ -13,8 +13,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/relogreat">Relogreat+</a>
                 </li>
-                {{-- IF cookie true, component user header, else --}}
-
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
@@ -44,13 +42,26 @@
                                     @csrf
                                 </form>
                             </li>
-                            <li><button class="dropdown-item yellow" type="button" data-bs-toggle="modal"
+                            <li><button class="dropdown-item" type="button" data-bs-toggle="modal"
                                     data-bs-target="#reloCommunityModal">Relogreat+ Community</button></li>
                             <li><button class="dropdown-item" type="button" data-bs-toggle="modal"
                                     data-bs-target="#modalStatus">Change Status</button></li>
                         </ul>
                     </div>
+                    @if(Str::endsWith(Auth::user()->email, '@relocate.com'))
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle nav-link" type="button" id="dropdownMenu2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li><a class="dropdown-item" type="button" href="/admin-city">City List</a></li>
+                                <li><a class="dropdown-item" type="button" href="/admin-transaction">Transaction List</a></li>
+                            </ul>
+                        </div>
+                    @endif
                 @endguest
+
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -59,9 +70,13 @@
         </div>
     </div>
 
+    @guest
+    @else
     <!-- Modal Relogreat Community -->
     @include('layouts.relogreatmodal')
 
     <!-- Modal Status -->
     @include('layouts.statusmodal')
+    @endguest
+
 </nav>
