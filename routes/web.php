@@ -13,23 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin-city', function () {
-    return view('admin-city');
-});
-
-Route::get('/admin-transaction', function () {
-    return view('admin-transaction');
-});
-
 
 Route::get('users/{id}', function ($id) {
 });
 
 Route::post('/change-status', [App\Http\Controllers\UserController::class, 'updateStatus']);
-
-Route::get('/relogreat', [App\Http\Controllers\PagesController::class, 'relogreat']);
-Route::get('/checkout', [App\Http\Controllers\PagesController::class, 'checkout']);
+Route::get('/relogreat', [App\Http\Controllers\CityController::class, 'relogreat']);
+Route::get('/checkout', [App\Http\Controllers\CityController::class, 'checkout']);
 Route::get('/', [App\Http\Controllers\CityController::class, 'index']);
+Route::get('/admin-transaction/{transaction_id}', [App\Http\Controllers\TransactionController::class, 'transaction_detail']);
+Route::get('/admin-transaction', [App\Http\Controllers\TransactionController::class, 'admin_transaction']);
 Route::get('/admin-city', [App\Http\Controllers\CityController::class, 'admin_city']);
 Route::get('/details/{cityname}', [App\Http\Controllers\DetailController::class, 'goToDetail']);
 

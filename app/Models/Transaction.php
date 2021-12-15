@@ -14,11 +14,11 @@ class Transaction extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function paymentmethod()
     {
-        return $this->hasOne(PaymentMethod::class);
+        return $this->belongsTo(PaymentMethod::class);
     }
 }

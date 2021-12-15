@@ -34,7 +34,7 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <li><a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                    document.getElementById('logout-form').submit();">
+                                    document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -42,7 +42,9 @@
                                     @csrf
                                 </form>
                             </li>
-                            <li><button class="dropdown-item" type="button" data-bs-toggle="modal"
+                            <li><button class="dropdown-item @if (Auth::user()->ispremium == 0)
+                                disabled
+                            @endif" type="button" data-bs-toggle="modal"
                                     data-bs-target="#reloCommunityModal">Relogreat+ Community</button></li>
                             <li><button class="dropdown-item" type="button" data-bs-toggle="modal"
                                     data-bs-target="#modalStatus">Change Status</button></li>
@@ -80,3 +82,4 @@
     @endguest
 
 </nav>
+

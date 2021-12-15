@@ -9,12 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class CityController extends Controller
 {
-    //
-
     public function admin_city()
     {
-        $result = Str::endsWith(Auth::user()->email, '@relocate.com');
         $cities = CityModel::all();
+        $result = Str::endsWith(Auth::user()->email, '@relocate.com');
         if ($result) {
             return view('admin.admin-city', ['cities' => $cities]);
         } else
@@ -25,5 +23,17 @@ class CityController extends Controller
     {
         $cities = CityModel::all();
         return view('index', ['cities' => $cities]);
+    }
+
+    public function relogreat()
+    {
+        $cities = CityModel::all();
+        return view('relogreat', ['cities' => $cities]);
+    }
+
+    public function checkout()
+    {
+        $cities = CityModel::all();
+        return view('checkout', ['cities' => $cities]);
     }
 }
