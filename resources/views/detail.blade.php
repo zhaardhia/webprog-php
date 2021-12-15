@@ -79,52 +79,52 @@ if ($enum2 == "verybad" || $enum3 == "verylow") {
             <div class="col-md-6 col-lg-3 mt-4">
                 <h3 class="text-decoration-underline">Finance</h3>
                 <div>
-                    <h2>Cost of Living</h2>
+                    <h4>Cost of Living</h4>
                     <p>{{ $city->detail->costofliving }}</p>
                 </div>
                 <div>
-                    <h2>Average Salary</h2>
+                    <h4>Average Salary</h4>
                     <p>{{ $city->detail->salary }}</p>
                 </div>
                 <div>
-                    <h2>Tax and Customs</h2>
+                    <h4>Tax and Customs</h4>
                     <p>{{ $city->detail->tax }}</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 mt-4">
                 <h3 class="text-decoration-underline">Weather</h3>
                 <div>
-                    <h2>Seasons</h2>
+                    <h4>Seasons</h4>
                     <p>{{ $city->detail->seasons }}</p>
                 </div>
                 <div>
-                    <h2>Temperature</h2>
+                    <h4>Temperature</h4>
                     <p>{{ $city->detail->temperature }}</p>
                 </div>
                 <div>
-                    <h2>Humidity</h2>
+                    <h4>Humidity</h4>
                     <p>{{ $city->detail->humidity }}</p>
                 </div>
                 <div>
-                    <h2>AQI</h2>
+                    <h4>AQI</h4>
                     <p>{{ $city->detail->aqi }}</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 mt-4">
                 <h3 class="text-decoration-underline">Safety</h3>
                 <div>
-                    <h2>Crime Rate</h2>
+                    <h4>Crime Rate</h4>
                     <p>{{ $city->detail->crimerate }}</p>
                 </div>
                 <div>
-                    <h2>Lack of Racism</h2>
+                    <h4>Lack of Racism</h4>
                     <!-- <p>{{ $city->detail->racism }}</p> -->
                     <div class="progress" style="height: 1.5rem;">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ $width2 }}%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ $city->detail->racism }}</div>
                     </div> 
                 </div>
                 <div>
-                    <h2>Traffic Safety</h2>
+                    <h4>Traffic Safety</h4>
                     <div class="progress" style="height: 1.5rem;">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ $width2 }}%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ $city->detail->traffic }}</div>
                     </div> 
@@ -134,26 +134,26 @@ if ($enum2 == "verybad" || $enum3 == "verylow") {
             <div class="col-md-6 col-lg-3 mt-4">
                 <h3 class="text-decoration-underline">Infrastructure</h3>
                 <div>
-                    <h2>Hospital Availability</h2>
+                    <h4>Hospital Availability</h4>
                     <div class="progress" style="height: 1.5rem;">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ $width2 }}%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ $city->detail->hospital }}</div>
                     </div> 
                     <!-- <p>{{ $city->detail->hospital }}</p> -->
                 </div>
                 <div>
-                    <h2>Quality of Education</h2>
+                    <h4>Quality of Education</h4>
                     <div class="progress" style="height: 1.5rem;">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: {{ $width2 }}%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{ $city->detail->education }}</div>
                     </div>  
                     <!-- <p>{{ $city->detail->education }}</p> -->
                 </div>
                 <div>
-                    <h2>Internet Speed</h2>
+                    <h4>Internet Speed</h4>
                     <p>{{ $city->detail->internet }} Mbps / second</p>
                 </div>
 
                 <div>
-                    <h2>Recreational Facilites</h2>
+                    <h4>Recreational Facilites</h4>
                     <div class="progress" style="height: 1.5rem;">
                         <div class="progress-bar progress-bar-striped progress-bar-animated {{ $width1 }}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>                   
