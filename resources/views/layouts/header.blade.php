@@ -44,7 +44,7 @@
                                     @csrf
                                 </form>
                             </li>
-                            <li><button class="dropdown-item yellow" type="button">Relogreat+ Community</button></li>
+                            <li><button class="dropdown-item yellow" type="button" data-bs-toggle="modal" data-bs-target="#reloCommunityModal">Relogreat+ Community</button></li>
                             <li><button class="dropdown-item" type="button">Change Status</button></li>
                         </ul>
                     </div>
@@ -56,4 +56,80 @@
             </form>
         </div>
     </div>
+    
+    <!-- Modal Relogreat Community -->
+    <div class="modal fade" id="reloCommunityModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Relogreat+ Community</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex flex-column">
+                    <label for="">Discord Channel</label>
+                    <div class="input-group mb-3">
+                        <input readonly type="text" id="comLinkDiscord" class="form-control communityLink" value="http/wkkwkw" aria-label="http/wkkwkw" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" data-clipboard-target="#comLinkDiscord">Copy</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="">Slack</label>
+                    <div class="input-group mb-3">
+                        <input readonly type="text" id="comLinkSlack" class="form-control" value="http/wwkw" aria-label="http/wk" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" data-clipboard-target="#comLinkSlack">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 </nav>
+
+<script>
+    // const copyToClipboard = (id) => {
+    //   /* Get the text field */
+    //   console.log(id);
+    //   let copyText = document.getElementById(id);
+    
+    //   /* Select the text field */
+    //   copyText.select();
+    //   copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    
+    //   /* Copy the text inside the text field */
+    //   navigator.clipboard.writeText(copyText.value);
+      
+    //   /* Alert the copied text */
+    //   alert("Copied the text: " + copyText.value);
+    // }
+
+        // Select elements
+    const target = document.getElementById('comLinkDiscord');
+    const button = target.nextElementSibling;
+    
+    // Init clipboard -- for more info, please read the offical documentation: https://clipboardjs.com/
+    var clipboard = new ClipboardJS(button, {
+        target: target,
+        text: function() {
+            return target.value;
+        }
+    });
+
+    // Success action handler
+    clipboard.on('success', function(e) {
+        const currentLabel = button.innerHTML;
+
+        // Exit label update when already in progress
+        if(button.innerHTML === 'Copied!'){
+            return;
+        }
+
+        // Update button label
+        button.innerHTML = 'Copied!';
+
+        // Revert button label after 3 seconds
+        setTimeout(function(){
+            button.innerHTML = currentLabel;
+        }, 3000)
+    });
+</script>
