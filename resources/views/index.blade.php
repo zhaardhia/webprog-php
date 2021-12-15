@@ -26,7 +26,7 @@
                 <div class="col-12 col-lg-4 mt-4">
                     <a href="/details/{{ $city->name }}">
                         <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1598135753163-6167c1a1ad65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"
+                            <img src="{{$city->images->img1}}"
                                 class="card-img-top h-75" alt="...">
                             <div class="card-body">
                                 <p class="card-text">{{ $city->name }}, {{ $city->country }}</p>
