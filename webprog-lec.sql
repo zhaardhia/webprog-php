@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2021 at 09:33 PM
+-- Generation Time: Dec 16, 2021 at 06:44 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -39,10 +39,7 @@ CREATE TABLE `city` (
 
 INSERT INTO `city` (`id`, `name`, `country`) VALUES
 (1, 'Brennahaven', 'Isle of Man'),
-(2, 'Port Raphaellebury', 'Slovenia'),
-(3, 'Jacobsonfurt', 'Kyrgyz Republic'),
-(4, 'North Eli', 'Somalia'),
-(15, 'ZZZZZZ', 'YYYYYYY');
+(2, 'NOT EVEN ROLLIING', 'UPDATED');
 
 -- --------------------------------------------------------
 
@@ -74,10 +71,7 @@ CREATE TABLE `citydetail` (
 
 INSERT INTO `citydetail` (`city_id`, `costofliving`, `salary`, `tax`, `seasons`, `temperature`, `humidity`, `aqi`, `crimerate`, `racism`, `traffic`, `hospital`, `education`, `internet`, `recreational`) VALUES
 (1, 20678, 24410, 49, 'Summer', 22, 4, 2, 51, 'verylow', 'verylow', 'verybad', 'verybad', 90, 'notmuch'),
-(2, 14949, 16743, 96, 'Summer', 30, 15, 4, 78, 'verylow', 'verylow', 'verybad', 'verybad', 43, 'notmuch'),
-(3, 27148, 21934, 43, 'Summer', 27, 9, 3, 39, 'verylow', 'verylow', 'verybad', 'verybad', 83, 'notmuch'),
-(4, 24265, 25917, 80, 'Summer', 30, 19, 1, 97, 'verylow', 'verylow', 'verybad', 'verybad', 87, 'notmuch'),
-(15, 1, 3, 3, 'Winter', 123, 1, 4, 44, 'verylow', 'veryhigh', 'verygood', 'verygood', 50, 'many');
+(2, 14949, 7, 96, 'Summer', 30, 15, 4, 88, 'verylow', 'verylow', 'verybad', 'verybad', 43, 'notmuch');
 
 -- --------------------------------------------------------
 
@@ -114,14 +108,9 @@ CREATE TABLE `images` (
 
 INSERT INTO `images` (`city_id`, `img1`, `img2`, `img3`) VALUES
 (1, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
-(2, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
-(3, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
-(4, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(2, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1200'),
 (1, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
-(2, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
-(3, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
-(4, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
-(15, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000');
+(2, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1200');
 
 -- --------------------------------------------------------
 
@@ -259,8 +248,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `city_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `ispremium`, `picture`) VALUES
-(1, 4, 'daffa', 'daffamadeo@gmail.com', NULL, '$2y$10$MQ8ydodm4BPshrn.M1gcXOq6E1pLLgNMHZ9XCg7VmhIQaTEBloP6S', NULL, '2021-12-14 01:09:30', '2021-12-15 08:26:05', 0, 'https://picsum.photos/1000'),
-(2, NULL, 'john', 'aaa@relocate.com', NULL, '$2y$10$MzjcqNS6n1A.2Pzb8mmH.eZFPyxU.z6yYYUwtz1ZMzjIJsmx0YNYG', NULL, '2021-12-15 07:57:11', '2021-12-15 07:57:11', 0, '');
+(1, NULL, 'daffa', 'daffamadeo@gmail.com', NULL, '$2y$10$MQ8ydodm4BPshrn.M1gcXOq6E1pLLgNMHZ9XCg7VmhIQaTEBloP6S', NULL, '2021-12-14 01:09:30', '2021-12-15 08:26:05', 0, 'https://picsum.photos/1000'),
+(2, NULL, 'john', 'aaa@relocate.com', NULL, '$2y$10$MzjcqNS6n1A.2Pzb8mmH.eZFPyxU.z6yYYUwtz1ZMzjIJsmx0YNYG', NULL, '2021-12-15 07:57:11', '2021-12-15 22:41:26', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -406,7 +395,7 @@ ALTER TABLE `transaction`
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `fk_status_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
+  ADD CONSTRAINT `fk_status_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

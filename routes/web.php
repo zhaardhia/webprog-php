@@ -36,4 +36,9 @@ Route::get('/details/{cityname}', [DetailController::class, 'goToDetail']);
 Route::get('/create-city', [CityController::class, 'create_city_view']);
 Route::post('/store', [CityController::class, 'store']);
 
+Route::get('/update-city/{city_id}', [CityController::class, 'update_city_view']);
+Route::post('/update/{city_id}', [CityController::class, 'update']);
+
+Route::get('/destroy-city/{city_id}', [CityController::class, 'destroy']);
+
 Auth::routes();

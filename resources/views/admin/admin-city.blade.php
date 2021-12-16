@@ -25,8 +25,8 @@
                 <td>{{$city->id}}</td>
                 <td>{{$city->name}}</td>
                 <td>{{$city->country}}</td>
-                <td><a class="btn btn-primary">Edit</a></td>
-                <td><a class="btn btn-danger">Delete</a></td>
+                <td><a href="/update-city/{{$city->id}}" class="btn btn-primary">Edit</a></td>
+                <td><a href="/destroy-city/{{$city->id}}" class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach
         </tbody>

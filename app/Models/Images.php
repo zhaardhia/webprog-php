@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Images extends Model
 {
     use HasFactory;
-
+    public $timestamps = false;
+    protected $primaryKey = 'city_id';
     protected $table = "images";
     protected $guarded = [];
     protected $fillable = [
