@@ -11,6 +11,10 @@ class Transaction extends Model
 
     protected $table = "transaction";
     protected $guarded = [];
+    protected $fillable = [
+        'paymentmethod_id',
+        'user_id',
+    ];
 
     public function user()
     {

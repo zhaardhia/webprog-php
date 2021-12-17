@@ -63,20 +63,21 @@
                 </div>
                 <div class="col-md-7 col-lg-8">
 
-                    <form class="form-check" action="storeCheckout" method="POST">
+                    <form class="form-check" action="store-transaction" method="POST">
+                        @csrf
                         <h4 class="mb-3">Payment</h4>
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked=""
-                                    required="">
+                                <input id="credit" name="paymentmethod_id" type="radio" class="form-check-input" checked=""
+                                    required="" value="1">
                                 <label class="form-check-label" for="credit">Credit card</label>
                             </div>
                             <div class="form-check">
-                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                                <input id="debit" name="paymentmethod_id" type="radio" class="form-check-input" required="" value="2">
                                 <label class="form-check-label" for="debit">Debit card</label>
                             </div>
                             <div class="form-check">
-                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                                <input id="paypal" name="paymentmethod_id" type="radio" class="form-check-input" required="" value="3">
                                 <label class="form-check-label" for="paypal">GoPay</label>
                             </div>
                         </div>

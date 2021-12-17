@@ -21,6 +21,7 @@ class PagesController extends Controller
 
     public function checkout()
     {
+        $this->middleware('auth');
         $cities = CityModel::all();
         return view('checkout', ['cities' => $cities]);
     }

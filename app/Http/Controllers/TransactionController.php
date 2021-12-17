@@ -34,17 +34,15 @@ class TransactionController extends Controller
             return redirect('/');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $request->request->add(['user_id' => $user_id]);
+        $transaction_data = $request->except('_token');
+        TranModel::insert($transaction_data);
 
-        $request->request->add(['user_id' => Auth::user()->id]);
-        $user = UserModel::findOrFail(Auth::user()->id);
-
-        $user->ispremium=1;
-        $user->save();
-
-        $paymentRequest = $request->except('_token');
-
-        TranModel::insert($paymentRequest);
+        UserModel::where('id', '=', $user_id)->update(['ispremium' => 1]);
+        // $user = UserModel::findOrFail($user_id);
 
         return redirect('/');
     }
