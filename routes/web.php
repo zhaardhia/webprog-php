@@ -41,4 +41,7 @@ Route::post('/update/{city_id}', [CityController::class, 'update']);
 
 Route::get('/destroy-city/{city_id}', [CityController::class, 'destroy']);
 
+route::post('/storeCheckout', [TransactionController::class, 'store'])->name('storeCheckout');
+
+
 Auth::routes();
