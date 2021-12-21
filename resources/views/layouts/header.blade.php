@@ -48,6 +48,8 @@
                                     data-bs-target="#reloCommunityModal">Relogreat+ Community</button></li>
                             <li><button class="dropdown-item" type="button" data-bs-toggle="modal"
                                     data-bs-target="#modalStatus">Change Status</button></li>
+                            <li><button class="dropdown-item" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#userModal">Change Profile</button></li>
                         </ul>
                     </div>
                     @if(Str::endsWith(Auth::user()->email, '@relocate.com'))
@@ -79,7 +81,10 @@
 
     <!-- Modal Status -->
     @include('layouts.statusmodal')
+
+    @include('layouts.usermodal')
     @endguest
+    
 
 </nav>
 
