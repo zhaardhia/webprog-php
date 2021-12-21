@@ -96,4 +96,12 @@ class CityController extends Controller
 
         return redirect('admin-city');
     }
+
+    public function searchCity(Request $request) {
+        $city = $request->city;
+        
+        $result = CityModel::where('name','LIKE','%'.$city.'%')->get();
+
+        return view('index', ['cities' => $result]); 
+    }
 }

@@ -21,21 +21,29 @@
 
         <div class="row justify-content-center flex-wrap">
 
-            @foreach ($cities as $city)
+        @if( count($cities) == 0)   
+            <div class="d-flex justify-content-center text-center">
+                <p class="text-black fs-1">😥 No City Found 😥</p>
+            </div>      
+        @else
+         @foreach ($cities as $city)
 
-                <div class="col-12 col-lg-4 mt-4">
-                    <a href="/details/{{ $city->name }}">
-                        <div class="card h-100">
-                            <img src="{{$city->images->img1}}"
-                                class="card-img-top h-75" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">{{ $city->name }}, {{ $city->country }}</p>
-                            </div>
+            <div class="col-12 col-lg-4 mt-4">
+                <a href="/details/{{ $city->name }}">
+                    <div class="card h-100">
+                        <img src="{{$city->images->img1}}"
+                            class="card-img-top h-75" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">{{ $city->name }}, {{ $city->country }}</p>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
+            </div>
 
-            @endforeach
+            @endforeach      
+        @endif
+
+            
         </div>
 
     </div>

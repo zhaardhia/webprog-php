@@ -31,6 +31,7 @@ Route::get('/admin-transaction', [TransactionController::class, 'admin_transacti
 
 Route::get('/admin-city', [CityController::class, 'admin_city']);
 Route::get('/details/{cityname}', [DetailController::class, 'goToDetail']);
+Route::get('search', [CityController::class, 'searchCity']);
 
 //CRUD ADMIN
 Route::get('/create-city', [CityController::class, 'create_city_view']);
