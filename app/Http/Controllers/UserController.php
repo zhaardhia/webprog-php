@@ -19,4 +19,17 @@ class UserController extends Controller
             $user->city_id = $request->city_id;
         $user->save();
     }
+
+    public function updateProfile(Request $request)
+    {
+        $userid = Auth::user()->id;
+        $user = UserModel::findOrFail($userid);
+
+        if (!$request->picture_link) {
+            return null;
+        } else
+            $user->picture = $request->picture_link;
+
+        $user->save();
+    }
 }

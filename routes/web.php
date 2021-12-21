@@ -21,6 +21,7 @@ Route::get('users/{id}', function ($id) {
 });
 
 Route::post('/change-status', [UserController::class, 'updateStatus']);
+Route::post('/change-profile', [UserController::class, 'updateProfile']);
 
 Route::get('/relogreat', [PagesController::class, 'relogreat']);
 Route::get('/checkout', [PagesController::class, 'checkout']);
