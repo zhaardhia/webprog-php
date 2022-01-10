@@ -1,0 +1,7 @@
+footer{
+    border-top: rgba(0, 0, 0, 0.123) 1px solid;
+}
+
+.footer-subhead, .footer-text{
+    color: black !important;
+}

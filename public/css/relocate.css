@@ -1,0 +1,47 @@
+.COLOR{
+    color:#990C26;
+    font-family: 'Open Sans', sans-serif;
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.fa { font-family: 'FontAwesome' !important; }
+
+.hero-text{
+    font-weight: 700;
+}
+
+.hero-index{
+    height: 300px;
+    color: white;
+    background-image: url("../images/hero-image.jpg");
+    background-size:cover;
+    background-position: center;
+    text-shadow: 0 0 4px black;
+}
+
+.hero-index a{
+    color: white !important;
+    background-color: #990C26;
+}
+.hero-index a:hover{
+    background-color: #8b0b22;
+}
+.hero-index a:focus{
+    border-color: #990C26;
+    box-shadow: 0 0 10px #990C26;
+    outline: none;
+}
+
+.card .card-img-overlay .card-title{
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px black;
+}
+
+.card:hover .card-img{
+    filter: brightness(50%);
+}

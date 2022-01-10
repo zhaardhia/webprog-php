@@ -2,16 +2,17 @@
 @extends('layouts.master')
 @section('content')
 
+<div class="container">
     <div class="input-group mt-3">
         <a href="/create-city" class="btn btn-outline-success w-100">Add new city</a>
     </div>
-    <div class="input-group">
+    <div class="input-group mt-3">
         <input type="search" class="form-control rounded" placeholder="Search city name" aria-label="Search"
             aria-describedby="search-addon" />
         <button type="button" class="btn btn-outline-primary">Search</button>
     </div>
 
-    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="50%">
+    <table class="table table-striped table-bordered table-sm mt-3" cellspacing="0" width="50%">
         <thead>
             <tr>
                 <th class="th-sm">ID</th>
@@ -31,4 +32,6 @@
             @endforeach
         </tbody>
     </table>
+</div>
+
 @endsection

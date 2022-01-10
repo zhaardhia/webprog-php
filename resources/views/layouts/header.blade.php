@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">Relocate</a>
+    <div class="container-fluid px-4">
+        <a class="navbar-brand" href="/"><img src="{{URL::asset('favicon/favicon.png')}}" class="header-img" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/relogreat">Relogreat+</a>
@@ -27,7 +27,7 @@
                     @endif
                 @else
                     <div class="dropdown">
-                        <button class="btn btn-light dropdown-toggle nav-link" type="button" id="dropdownMenu2"
+                        <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenu2"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </button>
@@ -68,8 +68,8 @@
 
             </ul>
             <form class="d-flex" method="GET" action="/search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="city">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search" name="city">
+                <button class="btn btn-search" type="submit"><i class="fas fa-search"></i></button>
             </form>
         </div>
     </div>
@@ -84,7 +84,7 @@
 
     @include('layouts.usermodal')
     @endguest
-    
+
 
 </nav>
 
