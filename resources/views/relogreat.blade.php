@@ -4,8 +4,8 @@
 @section('content')
 
 {{-- Dark Mode Hero --}}
-<div class="bg-dark text-secondary px-4 py-5 text-center">
-    <div class="py-5" >
+<div class="text-secondary px-4 py-5 text-center" style="background-image: url('https://images.unsplash.com/photo-1556484687-30636164638b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80'); background-repeat: no-repeat; background-size: cover;">
+    <div class="py-5">
         <h1 class="display-5 fw-bold text-white">Relogreat+</h1>
         <div class="col-lg-6 mx-auto">
             <p class="fs-5 mb-4">Get an enhanced Relocate experience for only less than $2 a month. It keeps the server alive
