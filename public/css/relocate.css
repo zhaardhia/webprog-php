@@ -22,6 +22,15 @@
     text-shadow: 0 0 4px black;
 }
 
+.herogreat-index{
+    height: 300px;
+    color: white;
+    background-image: url("../images/relogreat+.jpg");
+    background-size:cover;
+    background-position: center;
+    text-shadow: 0 0 4px black;
+}
+
 .hero-index a{
     color: white !important;
     background-color: #990C26;

@@ -4,19 +4,22 @@
 @section('content')
 
 {{-- Dark Mode Hero --}}
-<div class="text-secondary px-4 py-5 text-center" style="background-image: url('https://images.unsplash.com/photo-1556484687-30636164638b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80'); background-repeat: no-repeat; background-size: cover;">
-    <div class="py-5">
-        <h1 class="display-5 fw-bold text-white">Relogreat+</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="fs-5 mb-4">Get an enhanced Relocate experience for only less than $2 a month. It keeps the server alive
-                and it will help us a lot. 25% of the earnings will go to the "<a href="https://covid19responsefund.org/en/">Covid-19 Response Fund</a>".</p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="#bottom" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" role="button" aria-pressed="true">Start now</a>
 
+    <div class="text-secondary px-4 py-5 text-center" style="background-image: url('https://wallpaperaccess.com/full/123112.jpg'); background-repeat: no-repeat; background-size: cover;">
+        <div class="py-5">
+            <h1 class="display-5 fw-bold text-white">Relogreat+</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="fs-5 mb-4 text-white">Get an enhanced Relocate experience for only less than $2 a month. It keeps the server alive
+                    and it will help us a lot. 25% of the earnings will go to the "<a style="text-decoration: none" href="https://covid19responsefund.org/en/">Covid-19 Response Fund</a>".</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a href="#bottom" class="btn btn-primary mt-4 fw-bold" role="button" aria-pressed="true">Start now</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+
+
 
 {{-- Features (cards) --}}
 
