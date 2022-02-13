@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2021 at 08:40 AM
+-- Generation Time: Feb 13, 2022 at 12:58 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -38,8 +38,21 @@ CREATE TABLE `city` (
 --
 
 INSERT INTO `city` (`id`, `name`, `country`) VALUES
-(1, 'Brennahaven', 'Isle of Man'),
-(2, 'NOT EVEN ROLLIING', 'UPDATED');
+(1, 'Paris', 'France'),
+(2, 'Barcelona', 'Spain'),
+(3, 'Ubud', 'Indonesia'),
+(4, 'Sydney', 'Sydney'),
+(5, 'Singapore', 'Singapore'),
+(6, 'Seoul', 'South Korea'),
+(7, 'Los Angeles', 'USA'),
+(8, 'Berlin', 'Germany'),
+(9, 'Buenos Aires', 'Argentina'),
+(10, 'Bangkok', 'Thailand'),
+(11, 'Dubai', 'UAE'),
+(12, 'Tokyo', 'Japan'),
+(17, 'Lisbon', 'Portugal'),
+(18, 'Amsterdam', 'Netherlands'),
+(19, 'London', 'England');
 
 -- --------------------------------------------------------
 
@@ -70,8 +83,21 @@ CREATE TABLE `citydetail` (
 --
 
 INSERT INTO `citydetail` (`city_id`, `costofliving`, `salary`, `tax`, `seasons`, `temperature`, `humidity`, `aqi`, `crimerate`, `racism`, `traffic`, `hospital`, `education`, `internet`, `recreational`) VALUES
-(1, 20678, 24410, 49, 'Summer', 22, 4, 2, 51, 'verylow', 'verylow', 'verybad', 'verybad', 90, 'notmuch'),
-(2, 14949, 7, 96, 'Summer', 30, 15, 4, 88, 'verylow', 'verylow', 'verybad', 'verybad', 43, 'notmuch');
+(17, 659, 1196, 17, 'Spring, Summer', 65, 70.8, 73, 14.71, 'medium', 'medium', 'verygood', 'verygood', 109.99, 'several'),
+(18, 1054.86, 3895.39, 21, 'Spring, Summer, Autumn, Winter', 20, 75.3, 36, 33.63, 'veryhigh', 'medium', 'verygood', 'verygood', 80, 'many'),
+(19, 1176.71, 4318.61, 20, 'Spring, Summer, Autumn, Winter,', 8, 71, 63, 53.25, 'medium', 'high', 'verygood', 'verygood', 79.1, 'many'),
+(1, 1152, 2136, 17, 'Spring, Summer, Autumn, Winter', 20, 79, 43, 63, 'veryhigh', 'low', 'okay', 'bad', 63, 'many'),
+(2, 958, 1593, 20, 'Spring, Summer, Autumn, Winter', 17, 65, 38, 54, 'high', 'verylow', 'verybad', 'verygood', 97, 'notmuch'),
+(3, 1094, 3226, 20, 'Dry, Rainy', 20, 76, 45, 74, 'veryhigh', 'low', 'bad', 'bad', 97, 'notmuch'),
+(4, 957, 3192, 18, 'Spring, Summer, Autumn, Winter', 21, 79, 41, 64, 'verylow', 'verylow', 'verygood', 'verybad', 97, 'many'),
+(5, 805, 2188, 21, 'Spring, Summer, Autumn, Winter', 17, 71, 42, 74, 'veryhigh', 'high', 'bad', 'good', 71, 'notmuch'),
+(6, 904, 1891, 18, 'Dry, Rainy', 16, 70, 59, 64, 'low', 'high', 'verygood', 'okay', 62, 'notmuch'),
+(7, 796, 2672, 18, 'Spring, Summer, Autumn, Winter', 17, 70, 60, 74, 'low', 'medium', 'verybad', 'verygood', 71, 'many'),
+(8, 894, 2013, 17, 'Dry, Rainy', 20, 80, 60, 65, 'high', 'medium', 'good', 'verygood', 100, 'many'),
+(9, 734, 1759, 18, 'Dry, Rainy', 21, 64, 54, 70, 'veryhigh', 'medium', 'verygood', 'good', 63, 'many'),
+(10, 951, 2722, 20, 'Dry, Rainy', 15, 77, 50, 56, 'verylow', 'high', 'bad', 'verybad', 94, 'many'),
+(11, 719, 3837, 20, 'Spring, Summer, Autumn, Winter', 18, 63, 56, 62, 'veryhigh', 'medium', 'verygood', 'verygood', 100, 'notmuch'),
+(12, 773, 1764, 21, 'Spring, Summer, Autumn, Winter', 22, 70, 48, 59, 'high', 'verylow', 'verybad', 'okay', 81, 'several');
 
 -- --------------------------------------------------------
 
@@ -107,10 +133,21 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`city_id`, `img1`, `img2`, `img3`) VALUES
+(17, 'https://images2.alphacoders.com/735/thumb-1920-735366.jpg', 'https://wallpaperbat.com/img/108030-lisbon-wallpaper-image-photo-picture-background.jpg', 'https://wallpapercave.com/wp/wp2028761.jpg'),
+(18, 'https://p4.wallpaperbetter.com/wallpaper/198/736/998/selective-focus-photo-of-blue-petaled-flower-wallpaper-preview.jpg', 'https://p4.wallpaperbetter.com/wallpaper/757/553/277/amsterdam-wallpaper-preview.jpg', 'https://images3.alphacoders.com/951/thumb-1920-951110.jpg'),
+(19, 'https://wallpapercave.com/wp/wp2981069.jpg', 'https://wallpaperaccess.com/full/1413679.jpg', 'https://w0.peakpx.com/wallpaper/491/823/HD-wallpaper-london-big-ben-graphy-london-wide-screen-beautiful-big-ben-england.jpg'),
 (1, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
-(2, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1200'),
-(1, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
-(2, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1200');
+(2, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(3, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(4, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(5, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(6, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(7, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(8, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(9, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(10, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(11, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000'),
+(12, 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000');
 
 -- --------------------------------------------------------
 
@@ -250,7 +287,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `city_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `ispremium`, `picture`) VALUES
 (1, NULL, 'daffa', 'daffamadeo@gmail.com', NULL, '$2y$10$MQ8ydodm4BPshrn.M1gcXOq6E1pLLgNMHZ9XCg7VmhIQaTEBloP6S', NULL, '2021-12-14 01:09:30', '2021-12-15 08:26:05', 0, 'https://picsum.photos/1000'),
 (2, NULL, 'john', 'aaa@relocate.com', NULL, '$2y$10$MzjcqNS6n1A.2Pzb8mmH.eZFPyxU.z6yYYUwtz1ZMzjIJsmx0YNYG', NULL, '2021-12-15 07:57:11', '2021-12-15 22:41:26', 0, 'https://picsum.photos/1000'),
-(3, 1, 'sssss', 'yoyo@relocate.com', NULL, '$2y$10$N6HBp5BT847qknOed3t90.CiGK8VYYRP24OPh7hDgk5IjQ2latEnS', NULL, '2021-12-15 22:53:22', '2021-12-15 22:53:31', 0, 'https://picsum.photos/1000');
+(3, NULL, 'sssss', 'yoyo@relocate.com', NULL, '$2y$10$N6HBp5BT847qknOed3t90.CiGK8VYYRP24OPh7hDgk5IjQ2latEnS', NULL, '2021-12-15 22:53:22', '2021-12-15 22:53:31', 0, 'https://picsum.photos/1000'),
+(4, NULL, 'kojul', 'kojul@relocate.com', NULL, '$2y$10$hb36muwLz6uWkQ8Pwg3gZeoxfNwl2HACnb3VO49OTClX8Pa61d3ai', NULL, '2021-12-20 23:47:31', '2021-12-21 02:04:46', 0, 'https://static.independent.co.uk/2021/01/24/18/newFile-4.jpg?width=982&height=726&auto=webp&quality=75');
 
 --
 -- Indexes for dumped tables
@@ -331,7 +369,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -367,7 +405,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
