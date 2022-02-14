@@ -14,7 +14,7 @@ class AddForeignKeysToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('city_id', 'fk_city_users')->nullable()->references('id')->on('city')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('city_id', 'fk_city_users')->references('id')->on('city')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 
