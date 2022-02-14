@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysToCitydetailTable extends Migration {
+class AddForeignKeysToCitydetailTable extends Migration
+{
 
 	/**
 	 * Run the migrations.
@@ -13,9 +14,8 @@ class AddForeignKeysToCitydetailTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('citydetail', function(Blueprint $table)
-		{
-			$table->foreign('cityid', 'fk_city')->references('id')->on('city')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+		Schema::table('citydetail', function (Blueprint $table) {
+			$table->foreign('city_id', 'fk_city')->references('id')->on('city')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
@@ -27,10 +27,8 @@ class AddForeignKeysToCitydetailTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('citydetail', function(Blueprint $table)
-		{
+		Schema::table('citydetail', function (Blueprint $table) {
 			$table->dropForeign('fk_city');
 		});
 	}
-
 }
