@@ -2,9 +2,11 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactionTable extends Migration {
+class CreateTransactionTable extends Migration
+{
 
 	/**
 	 * Run the migrations.
@@ -13,8 +15,7 @@ class CreateTransactionTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('transaction', function(Blueprint $table)
-		{
+		Schema::create('transaction', function (Blueprint $table) {
 			$table->integer('id', true);
 			$table->bigInteger('userid')->unsigned()->index('userid');
 			$table->integer('paymentmethodid')->index('paymentmethodid');
@@ -32,5 +33,4 @@ class CreateTransactionTable extends Migration {
 	{
 		Schema::drop('transaction');
 	}
-
 }
