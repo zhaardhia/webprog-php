@@ -17,7 +17,7 @@ class CitySeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 1; $i <= 4; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             DB::table('city')->insert([
                 'id' => $i,
                 'name' => $faker->city(),

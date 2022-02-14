@@ -17,7 +17,7 @@ class CityDetailSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 1; $i <= 4; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             DB::table('citydetail')->insert([
                 'cityid' => $i,
                 'costofliving' => $faker->numberBetween(10000, 30000),
