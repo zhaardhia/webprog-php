@@ -19,7 +19,7 @@ class CreateTransactionTable extends Migration
 			$table->integer('id', true);
 			$table->bigInteger('userid')->unsigned()->index('userid');
 			$table->integer('paymentmethodid')->index('paymentmethodid');
-			$table->date('date')->default(DB::raw('CURRENT_TIMESTAMP'));
+			$table->timestamps();
 		});
 	}
 
